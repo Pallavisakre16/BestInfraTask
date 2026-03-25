@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "bestinfra",
+    "slug": "bestinfra",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/Logo.png",
+    "scheme": "bestinfra",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.bestinfra.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#1C266C",
+        "foregroundImage": "./assets/images/Logo.png",
+        "backgroundImage": "./assets/images/Ellipse 1.png",
+        "monochromeImage": "./assets/images/Logo.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/Logo.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/Logo.png",
+          "imageWidth": 140,
+          "resizeMode": "contain",
+          "backgroundColor": "#1C266C",
+          "dark": {
+            "backgroundColor": "#1C266C"
+          }
+        }
+      ],
+      "@react-native-community/datetimepicker"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "35528571-acb2-49d5-b547-3613da306a53"
+      }
+    },
+    "owner": "pallavi_sakre"
+  }
+}
