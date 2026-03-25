@@ -19,7 +19,7 @@ export function WavingHand() {
       -1,
       true
     );
-  }, []);
+  }, [rotation]);
 
   const animatedStyle = useAnimatedStyle(() => {
     const rotate = interpolate(

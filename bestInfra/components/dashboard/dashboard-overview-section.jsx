@@ -7,10 +7,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useEffect, useRef } from "react";
 
 import { DashboardLogo } from "./dashboard-logo";
-import { WavingHand } from "../waving-hand";
-import { useEffect, useRef } from "react";
 
 export function DashboardOverviewSection({
   data,
@@ -250,13 +249,6 @@ const styles = StyleSheet.create({
     right: 0,
     alignItems: "center",
     justifyContent: "center",
-  },
-  greeting: {
-    color: "#283028",
-    fontSize: 26,
-    lineHeight: 26,
-    fontWeight: "700",
-    marginTop: 6,
   },
   greetingRow: {
     position: "relative",
