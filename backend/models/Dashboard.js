@@ -28,10 +28,13 @@ const dashboardSchema = new mongoose.Schema(
       ranges: [String],
       activeRange: String,
       chartAction: String,
+      primarySeriesLabel: String,
+      secondarySeriesLabel: String,
       bars: [
         {
           month: String,
           height: Number,
+          compareHeight: Number,
         },
       ],
     },

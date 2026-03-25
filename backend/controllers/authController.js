@@ -1,6 +1,7 @@
 const Dashboard = require('../models/Dashboard');
 const User = require('../models/User');
 const { ensureUserResources } = require('../services/seedService');
+const { normalizeDashboardPayload } = require('../services/dashboardTransformService');
 const { generateToken } = require('../services/tokenService');
 
 async function registerUser(req, res, next) {
@@ -66,6 +67,7 @@ async function loginUser(req, res, next) {
 
     await ensureUserResources(user);
     const dashboard = await Dashboard.findOne({ user: user._id });
+    const normalizedDashboard = normalizeDashboardPayload(dashboard?.toObject ? dashboard.toObject() : dashboard);
 
     res.json({
       token: generateToken(user._id),
@@ -77,7 +79,7 @@ async function loginUser(req, res, next) {
         address: user.address || '',
         customerId: user.customerId,
       },
-      dashboard,
+      dashboard: normalizedDashboard,
     });
   } catch (error) {
     next(error);

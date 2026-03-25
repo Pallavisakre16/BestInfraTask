@@ -1,5 +1,6 @@
 const Dashboard = require('../models/Dashboard');
 const { ensureUserResources } = require('../services/seedService');
+const { normalizeDashboardPayload } = require('../services/dashboardTransformService');
 
 async function getDashboard(req, res, next) {
   try {
@@ -11,13 +12,15 @@ async function getDashboard(req, res, next) {
       throw new Error('Dashboard not found');
     }
 
+    const normalizedDashboard = normalizeDashboardPayload(dashboard);
+
     res.json({
-      overview: dashboard.overview,
-      energySummary: dashboard.energySummary,
-      metricSummary: dashboard.metricSummary,
-      alerts: dashboard.alerts,
-      navItems: dashboard.navItems,
-      menu: dashboard.menu,
+      overview: normalizedDashboard.overview,
+      energySummary: normalizedDashboard.energySummary,
+      metricSummary: normalizedDashboard.metricSummary,
+      alerts: normalizedDashboard.alerts,
+      navItems: normalizedDashboard.navItems,
+      menu: normalizedDashboard.menu,
     });
   } catch (error) {
     next(error);
